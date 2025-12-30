@@ -1,0 +1,550 @@
+.please-stay-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(120deg, #fff7fb 0%, #fefbe8 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.please-stay-container {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 96%);
+  background: var(--glass-bg);
+  border-radius: 24px;
+  padding: 50px 48px;
+  box-shadow: 0 10px 30px rgba(27, 31, 35, 0.08);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.please-stay-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.please-stay-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(42px, 10vw, 68px);
+  margin: 0;
+  color: #2b1720;
+  letter-spacing: 0.8px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.please-stay-subtitle {
+  font-size: clamp(18px, 5vw, 26px);
+  color: #5b4b52;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.please-stay-message {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.please-text {
+  font-size: 18px;
+  color: #3d2b32;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.please-personal-message {
+  font-size: 20px;
+  color: #ff6b81;
+  margin: 12px 0 0 0;
+  line-height: 1.6;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Game One - Hearts */
+.game-one-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 18px;
+}
+
+.game-instruction {
+  font-size: 18px;
+  color: #5b4b52;
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.hearts-container {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.heart-icon {
+  font-size: 40px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
+
+.heart-icon:hover {
+  transform: scale(1.2);
+}
+
+.heart-icon.filled {
+  opacity: 1;
+  filter: grayscale(0%);
+  animation: heartPulse 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes heartPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.game-progress {
+  font-size: 16px;
+  color: #ff6b81;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Game Two - Emotions */
+.game-two-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 18px;
+}
+
+.emotion-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.emotion-btn {
+  padding: 18px 16px;
+  border: 3px solid;
+  border-radius: 14px;
+  background: #fff0f6;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2b1720;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70px;
+}
+
+.emotion-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(255, 107, 129, 0.2);
+}
+
+.emotion-btn.clicked {
+  transform: scale(1.05);
+  box-shadow: 0 14px 32px rgba(255, 107, 129, 0.35);
+  color: white;
+  font-weight: 700;
+}
+
+.emotion-text {
+  line-height: 1.4;
+}
+
+.game-progress-two {
+  font-size: 16px;
+  color: #ff6b81;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Final Message */
+.final-message-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 35px;
+  background: linear-gradient(135deg, rgba(255, 215, 227, 0.3), rgba(255, 240, 245, 0.3));
+  border-radius: 18px;
+  border: 2px solid rgba(255, 107, 129, 0.15);
+}
+
+.final-message-text {
+  font-size: 20px;
+  color: #2b1720;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.floating-hearts {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.float-heart {
+  font-size: 36px;
+  animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.float-heart:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.float-heart:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.float-heart:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.float-heart:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+.float-heart:nth-child(5) {
+  animation-delay: 1.6s;
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+}
+
+.final-closing {
+  font-size: 22px;
+  color: #ff6b81;
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.please-stay-footer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.please-back-btn,
+.please-next-btn {
+  padding: 14px 32px;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0 6px 18px rgba(255, 107, 129, 0.18);
+  transition: all 0.3s ease;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.please-back-btn {
+  background: linear-gradient(90deg, #c0c0c0, #e0e0e0);
+  color: #333;
+}
+
+.please-back-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(192, 192, 192, 0.3);
+}
+
+.please-back-btn:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+.please-next-btn {
+  background: linear-gradient(90deg, #ff6b81, #ff9aa2);
+}
+
+.please-next-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(255, 107, 129, 0.3);
+}
+
+.please-next-btn:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .please-stay-container {
+    padding: 36px 28px;
+    gap: 30px;
+  }
+
+  .please-stay-title {
+    font-size: clamp(36px, 9vw, 52px);
+  }
+
+  .please-stay-subtitle {
+    font-size: clamp(16px, 4vw, 22px);
+  }
+
+  .please-text {
+    font-size: 17px;
+  }
+
+  .please-personal-message {
+    font-size: 18px;
+  }
+
+  .game-one-section {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .hearts-container {
+    gap: 10px;
+  }
+
+  .heart-icon {
+    font-size: 36px;
+  }
+
+  .emotion-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .emotion-btn {
+    padding: 14px 12px;
+    font-size: 14px;
+    min-height: 60px;
+  }
+
+  .float-heart {
+    font-size: 32px;
+  }
+
+  .final-message-text {
+    font-size: 18px;
+  }
+
+  .final-closing {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .please-stay-root {
+    padding: 20px 12px;
+    justify-content: flex-start;
+    padding-top: 30px;
+  }
+
+  .please-stay-container {
+    width: 100%;
+    padding: 28px 20px;
+    border-radius: 18px;
+    gap: 24px;
+  }
+
+  .please-stay-title {
+    font-size: clamp(32px, 8vw, 42px);
+  }
+
+  .please-stay-subtitle {
+    font-size: clamp(14px, 3.5vw, 19px);
+  }
+
+  .please-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .please-personal-message {
+    font-size: 16px;
+  }
+
+  .game-one-section {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .game-instruction {
+    font-size: 16px;
+  }
+
+  .hearts-container {
+    gap: 8px;
+  }
+
+  .heart-icon {
+    font-size: 32px;
+  }
+
+  .emotion-buttons {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .emotion-btn {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .final-message-section {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .float-heart {
+    font-size: 28px;
+    gap: 12px;
+  }
+
+  .final-message-text {
+    font-size: 16px;
+  }
+
+  .final-closing {
+    font-size: 18px;
+  }
+
+  .please-back-btn,
+  .please-next-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+    flex: 1;
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .please-stay-root {
+    padding: 16px 10px;
+    padding-top: 20px;
+  }
+
+  .please-stay-container {
+    width: 100%;
+    padding: 24px 16px;
+    border-radius: 16px;
+    gap: 20px;
+  }
+
+  .please-stay-title {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  .please-stay-subtitle {
+    font-size: clamp(13px, 3vw, 16px);
+  }
+
+  .please-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .please-personal-message {
+    font-size: 15px;
+  }
+
+  .game-one-section {
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .game-instruction {
+    font-size: 15px;
+  }
+
+  .hearts-container {
+    gap: 6px;
+  }
+
+  .heart-icon {
+    font-size: 28px;
+  }
+
+  .emotion-buttons {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .emotion-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+    min-height: 55px;
+  }
+
+  .final-message-section {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .float-heart {
+    font-size: 26px;
+  }
+
+  .final-message-text {
+    font-size: 15px;
+  }
+
+  .final-closing {
+    font-size: 16px;
+  }
+
+  .please-back-btn,
+  .please-next-btn {
+    width: 100%;
+    padding: 11px 20px;
+    font-size: 14px;
+  }
+}

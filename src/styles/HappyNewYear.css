@@ -1,0 +1,282 @@
+.hny-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(120deg, #fff7fb 0%, #fefbe8 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.hny-container {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 96%);
+  background: var(--glass-bg);
+  border-radius: 24px;
+  padding: 80px 60px;
+  box-shadow: 0 10px 30px rgba(27, 31, 35, 0.08);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.hny-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.hny-personal-intro {
+  font-size: 24px;
+  color: #ff6b81;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  max-width: 700px;
+}
+
+.hny-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(56px, 14vw, 92px);
+  margin: 0;
+  color: #2b1720;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hny-message {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: center;
+}
+
+.hny-text {
+  font-size: 22px;
+  color: #3d2b32;
+  line-height: 1.9;
+  margin: 0;
+  font-weight: 500;
+}
+
+.hny-closing {
+  font-size: 26px;
+  color: #2b1720;
+  line-height: 1.9;
+  margin: 0;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.hny-decorative-elements {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.deco-item {
+  font-size: 48px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.deco-item:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.deco-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.deco-item:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.deco-item:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+.deco-item:nth-child(5) {
+  animation-delay: 1.6s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+}
+
+.hny-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.hny-back-btn {
+  padding: 14px 40px;
+  font-size: 16px;
+  background: linear-gradient(90deg, #ff6b81, #ff9aa2);
+  color: white;
+  box-shadow: 0 6px 18px rgba(255, 107, 129, 0.18);
+  transition: all 0.3s ease;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.hny-back-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(255, 107, 129, 0.3);
+}
+
+.hny-back-btn:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hny-container {
+    padding: 60px 40px;
+    gap: 40px;
+  }
+
+  .hny-personal-intro {
+    font-size: 20px;
+  }
+
+  .hny-title {
+    font-size: clamp(48px, 12vw, 72px);
+  }
+
+  .hny-text {
+    font-size: 20px;
+  }
+
+  .hny-closing {
+    font-size: 23px;
+  }
+
+  .deco-item {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hny-root {
+    padding: 20px 12px;
+    justify-content: flex-start;
+    padding-top: 30px;
+  }
+
+  .hny-container {
+    width: 100%;
+    padding: 32px 24px;
+    border-radius: 18px;
+    gap: 28px;
+  }
+
+  .hny-content {
+    gap: 24px;
+  }
+
+  .hny-personal-intro {
+    font-size: 17px;
+  }
+
+  .hny-title {
+    font-size: clamp(36px, 9vw, 48px);
+  }
+
+  .hny-text {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .hny-closing {
+    font-size: 17px;
+  }
+
+  .hny-decorative-elements {
+    gap: 14px;
+  }
+
+  .deco-item {
+    font-size: 26px;
+  }
+
+  .hny-back-btn {
+    padding: 12px 32px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hny-root {
+    padding: 16px 10px;
+    padding-top: 20px;
+  }
+
+  .hny-container {
+    width: 100%;
+    padding: 28px 18px;
+    border-radius: 16px;
+    gap: 24px;
+  }
+
+  .hny-content {
+    gap: 20px;
+  }
+
+  .hny-personal-intro {
+    font-size: 15px;
+  }
+
+  .hny-title {
+    font-size: clamp(32px, 8vw, 40px);
+  }
+
+  .hny-text {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .hny-closing {
+    font-size: 16px;
+  }
+
+  .hny-decorative-elements {
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .deco-item {
+    font-size: 24px;
+  }
+
+  .hny-back-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+}

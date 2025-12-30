@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+:root{
+  --bg1: #fff7fb;
+  --accent: #ff6b81;
+  --accent-2: #ffd166;
+  --card: rgba(255,255,255,0.8);
+  /* reduced opacity for the glass panel */
+  --glass-bg: rgba(255, 255, 255, 0.36);
+  --glass-border: rgba(255, 255, 255, 0.5);
+}
+
+/* home-container1: mirror the glass effect and width of .home-container */
+.home-container1{position:relative;z-index:1;width:min(920px,94%);background:var(--glass-bg);border-radius:18px;padding:28px 20px;box-shadow:0 10px 30px rgba(27,31,35,0.08);overflow:visible;border:1px solid var(--glass-border);backdrop-filter:blur(10px) saturate(120%);-webkit-backdrop-filter:blur(10px);min-height:auto;display:flex;flex-direction:column;justify-content:center;align-items:center;margin:20px 0}
+.home-container1 .inner{width:100%;max-width:920px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.home-container1 .cta{position:relative;width:100%;display:flex;justify-content:center;gap:14px;align-items:center}
+.home-container1 .cta .btn{padding:12px 24px}
+
+@media (max-width:560px){
+  .home-container1{padding:18px}
+  .home-container1 .cta{flex-direction:column}
+  .home-container1 .cta .btn{width:100%}
+}
+*{box-sizing:border-box}
+body,html,#root{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+
+/* use the cursive font for the title */
+.title{font-family:'Dancing Script', cursive}
+.title1{font-family:'Dancing Script', cursive}
+
+
+.home-root{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:400px;background:linear-gradient(120deg,#fff7fb 0%, #fefbe8 100%);position:relative;overflow:hidden}
+.bg-decor{position:absolute;inset:0;background:radial-gradient(circle at 10% 10%, rgba(255,107,129,0.06), transparent 8%), radial-gradient(circle at 90% 80%, rgba(255,209,102,0.06), transparent 8%)}
+
+/* canvas background container */
+.bg-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.bg-canvas-inner{position:absolute;inset:0;display:block;}
+
+.home-container{position:relative;z-index:1;width:min(920px,94%);background:var(--glass-bg);border-radius:18px;padding:28px 20px;box-shadow:0 10px 30px rgba(27,31,35,0.08);overflow:visible;border:1px solid var(--glass-border);backdrop-filter:blur(10px) saturate(120%);-webkit-backdrop-filter:blur(10px);min-height:50vh;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding-top:260px}
+
+/* subtle inner glow to make it feel soft */
+.home-container::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0));mix-blend-mode:overlay}
+
+/* kitty image: positioned at the top center of the card and slightly larger */
+.kitty-img{position:absolute;top:0;left:50%;right:auto;transform:translate(-50%,-50%);width:420px;height:auto;pointer-events:none;z-index:0;opacity:0.95}
+
+@media (max-width:480px){
+  .kitty-img{width:260px}
+}
+
+/* ensure container uses flex layout and centers its children */
+.home-container{display:flex;flex-direction:column;align-items:center;padding-top:260px}
+
+/* responsive sizing tuned for tall phones like 1080x2412 (aspect ratio > 2) */
+@media (min-aspect-ratio: 2/1) and (max-width:480px){
+  .home-container{width:92%;max-width:420px;padding:18px 16px}
+  .home-container{height:78vh}
+  .home-container .kitty-img{width:160px}
+  .title{font-size:30px}
+}
+
+@media (min-aspect-ratio: 2/1) and (max-width:480px){
+  .home-container1{width:92%;max-width:420px;padding:18px 16px}
+  .home-container1{height:78vh}
+  .home-container .kitty-img{width:160px}
+  .title{font-size:30px}
+}
+
+/* sparkles and badge */
+.badge{position:absolute;left:16px;top:8px;background:linear-gradient(90deg,#fff0f6,#fff7fb);padding:8px 12px;border-radius:999px;font-weight:700;color:#6b2b3a;z-index:3;box-shadow:0 6px 18px rgba(203,94,119,0.08);font-family:'Dancing Script',cursive;font-size:16px}
+.sparkles{position:absolute;left:50%;top:14px;transform:translateX(-50%);display:flex;gap:10px;z-index:1;pointer-events:none}
+.sparkle{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,#ffd7e3,#ffdede);display:block;opacity:.95;animation:spark 1600ms infinite ease-in-out}
+.sparkle:nth-child(2){animation-delay:120ms}
+.sparkle:nth-child(3){animation-delay:260ms}
+.sparkle:nth-child(4){animation-delay:420ms}
+.sparkle:nth-child(5){animation-delay:640ms}
+
+@keyframes spark{0%{transform:translateY(0) scale(.9);opacity:.6}50%{transform:translateY(-8px) scale(1.1);opacity:1}100%{transform:translateY(0) scale(.95);opacity:.6}}
+
+/* entrance animation for the card and gentle title pulse */
+.home-container{animation:cardIn .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px) scale(.995)}to{opacity:1;transform:none}}
+.title{animation:heartbeat 3.6s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}10%{transform:scale(1.04)}30%{transform:scale(1)} }
+
+.title{font-size:clamp(44px,8vw,72px);line-height:1}
+.title1{font-size:clamp(44px,8vw,22px);line-height:1}
+
+.subtitle{font-size:22px}
+.btn{padding:14px 28px;font-size:16px;border-radius:14px}
+.btn.no{padding:12px 20px}
+.header{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.title{font-size:clamp(36px,7vw,72px);margin:0;color:#2b1720;letter-spacing:0.6px}
+.subtitle{margin:0;color:#5b4b52;font-size:30px;line-height:2}
+
+/* removed emoji stickers - keep an optional decorative band */
+.decor-band{height:8px;border-radius:20px;background:linear-gradient(90deg, rgba(255,107,129,0.14), rgba(255,210,150,0.12));margin-top:14px}
+
+@keyframes pop{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.06)}}
+
+.cta{position:relative;margin-top:20px;display:flex;align-items:flex-start;gap:14px}
+.btn{padding:12px 24px;border-radius:10px;border:none;font-weight:600;cursor:pointer}
+.btn.yes{background:linear-gradient(90deg,var(--accent),#ff9aa2);color:white;box-shadow:0 6px 18px rgba(255,107,129,0.18);transform:translateZ(0);transition:transform .18s ease,box-shadow .18s}
+.btn.yes:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 16px 28px rgba(255,107,129,0.14)}
+.btn.yes:active{transform:scale(.98)}
+.btn.no{background:#fff;border:2px solid #f0f0f0;color:#444;transition:all .2s ease}
+.btn.no:hover{background:#fff0f2;border-color:#ff6b81;color:#ff6b81;transform:translateY(-2px);box-shadow:0 8px 16px rgba(255,107,129,0.12)}
+.btn.no:active{transform:scale(.97)}
+
+@keyframes shake{
+  10%,90%{transform:translateX(-1px)}
+  20%,80%{transform:translateX(2px)}
+  30%,50%,70%{transform:translateX(-4px)}
+  40%,60%{transform:translateX(4px)}
+}
+
+@keyframes float{0%{transform:translateY(0) translateX(0) scale(1)}50%{transform:translateY(-48px) translateX(var(--x, 8px)) scale(1.04)}100%{transform:translateY(0) translateX(0) scale(1)}}
+
+.confetti{position:absolute;inset:0;pointer-events:none}
+.confetti::before,.confetti::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 30%, rgba(255, 230, 0, 0.08), transparent 2%), radial-gradient(circle at 70% 60%, rgba(255,0,102,0.06), transparent 2%);opacity:0;transition:opacity .3s}
+.confetti.burst::before{opacity:1;animation:confettiBurst 900ms forwards}
+
+@keyframes confettiBurst{0%{transform:translateY(-10px) scale(.98);opacity:0}50%{opacity:1}100%{transform:translateY(-160px) scale(1.02);opacity:0}}
+
+.modal{position:fixed;inset:0;background:linear-gradient(180deg, rgba(12,12,12,0.28), rgba(12,12,12,0.56));display:flex;align-items:center;justify-content:center;padding:24px}
+.modal-card{background:rgba(255,255,255,0.98);padding:18px;border-radius:12px;max-width:520px;text-align:center;box-shadow:0 20px 50px rgba(12,12,12,0.28)}
+.modal-card h2{margin:6px 0 6px;font-family:'Dancing Script',cursive}
+.modal-card p{color:#444;margin:8px 0}
+.btn.close{margin-top:14px;background:#fff0f2;border-radius:10px}
+
+/* responsive */
+@media (max-width:560px){
+  .home-container{padding:20px;border-radius:14px}
+  .btn{padding:12px 18px}
+}
+
+/* target small phones (and narrow viewports like many mobiles) */
+@media (max-width:480px){
+  /* on small screens, keep extra top padding so kitty won't overlap */
+  .home-container{padding:18px;border-radius:12px;padding-top:180px}
+  .header{align-items:center;text-align:center}
+  .title{font-size:clamp(30px,9vw,44px)}
+  .subtitle{font-size:18px}
+  .decor-band{display:block;margin:12px auto;width:70%}
+  .cta{position:relative;display:flex;gap:12px;flex-direction:column;align-items:stretch;height:auto;margin-top:18px}
+  .btn{flex:1 1 auto;min-width:0;padding:14px;border-radius:12px;font-size:16px}
+  .modal-card{width:calc(100% - 32px);margin:0 12px}
+}
